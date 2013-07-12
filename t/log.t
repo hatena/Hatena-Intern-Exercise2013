@@ -18,6 +18,6 @@ is $log->method, 'GET';
 is $log->path, '/apache_pb.gif';
 is $log->protocol, 'HTTP/1.0';
 is $log->uri, 'http://127.0.0.1/apache_pb.gif';
-is $log->time, '2013-07-02T00:59:50';
+is $log->time, '2013-07-01T15:59:50';
 
 done_testing();
