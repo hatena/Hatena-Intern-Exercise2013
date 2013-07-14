@@ -457,7 +457,7 @@ createLogTable(containerElem, [
 課題 JS-1 と JS-2 で作成した関数を用いて、js/js-3.html のページが次のような動作をするように js/js-3.js に JavaScript の処理を記述しなさい。
 js/main.js には課題 JS-1 と JS-2 で作成した関数が記述されているものとします。
 
-* js/js-3.html の動作: ユーザーが `textarea` 要素に LTSV 形式のアクセスログを入力し、「表に出力する」 ボタンをクリックすると、`access-log-table-container` という `id` 属性をもつ要素の直下にアクセスログの表を表す `table` 要素が作られる。
+* js/js-3.html の動作: ユーザーが `textarea` 要素に LTSV 形式のアクセスログを入力し、「表に出力する」 ボタンをクリックすると、`table-container` という `id` 属性をもつ要素の直下にアクセスログの表を表す `table` 要素が作られる。
 
 js/js-3.html の中身は次のとおりです。
 
