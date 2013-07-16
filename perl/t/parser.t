@@ -13,32 +13,44 @@ my $parsed = $parser->parse;
 isa_ok $parsed->[0], 'Log';
 isa_ok $parsed->[1], 'Log';
 isa_ok $parsed->[2], 'Log';
+isa_ok $parsed->[3], 'Log';
 
-is_deeply $parsed->[0]->to_hash, {
-    'status' => '200',
-    'time' => '2013-07-01T15:59:50',
-    'size' => '2326',
-    'uri' => 'http://127.0.0.1/apache_pb.gif',
-    'user' => 'frank',
-    'method' => 'GET',
-    'referer' => 'http://www.hatena.ne.jp/'
-};
-is_deeply $parsed->[1]->to_hash, {
-    'status' => '200',
-    'time' => '2013-07-02T19:46:30',
-    'size' => '1234',
-    'uri' => 'http://127.0.0.1/apache_pb.gif',
-    'user' => 'john',
-    'method' => 'GET',
-    'referer' => 'http://b.hatena.ne.jp/hotentry'
-};
-is_deeply $parsed->[2]->to_hash, {
-    'status' => '503',
-    'time' => '2013-07-03T23:33:10',
-    'method' => 'GET',
-    'referer' => 'http://www.example.com/start.html',
-    'size' => '9999',
-    'uri' => 'http://127.0.0.1/apache_pb.gif'
-};
+is_deeply $parsed, [
+    {
+        'epoch' => '1372694390',
+        'req' => 'GET /apache_pb.gif HTTP/1.0',
+        'status' => '200',
+        'user' => 'frank',
+        'referer' => 'http://www.hatena.ne.jp/',
+        'size' => '2326',
+        'host' => '127.0.0.1'
+    },
+    {
+        'epoch' => '1372794390',
+        'req' => 'GET /apache_pb.gif HTTP/1.0',
+        'status' => '200',
+        'user' => 'john',
+        'referer' => 'http://b.hatena.ne.jp/hotentry',
+        'size' => '1234',
+        'host' => '127.0.0.1'
+    },
+    {
+        'epoch' => '1372894390',
+        'req' => 'GET /apache_pb.gif HTTP/1.0',
+        'status' => '503',
+        'referer' => 'http://www.example.com/start.html',
+        'size' => '9999',
+        'host' => '127.0.0.1'
+    },
+    {
+        'epoch' => '1372694390',
+        'req' => 'GET /apache_pb.gif HTTP/1.0',
+        'status' => '500',
+        'user' => 'frank',
+        'referer' => 'http://www.hatena.ne.jp/',
+        'size' => '2326',
+        'host' => '127.0.0.1'
+    },
+];
 
 done_testing();
